@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance</title>
+
+    <style>
+
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.spinner {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>This site is refurbishing</h1>
+        <p>We are hardly working to restablish it ASAP</p>
+        <p>Redirecting in <span id="countdown">10</span> Seconds...</p>
+        <div class="spinner"></div>
+    </div>
+
+
+    <script>
+        // Countdown setup
+let countdownElement = document.getElementById('countdown');
+let countdownValue = 10;
+
+let countdownInterval = setInterval(() => {
+    countdownValue--;
+    countdownElement.textContent = countdownValue;
+
+    if (countdownValue <= 0) {
+        clearInterval(countdownInterval);
+        // Redirect to the My Affiliates Domain
+        window.location.href = 'https://www.myaffiliates.com/';
+    }
+}, 1000);
+    </script>
+</body>
+</html>
